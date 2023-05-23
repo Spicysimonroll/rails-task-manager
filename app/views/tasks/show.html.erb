@@ -1,8 +1,16 @@
 <h1><%= @task.title %></h1>
-<h2>Description:</h2>
-<p><%= @task.details %></p>
-<h2>Completed?</h2>
-<p><%= @task.completed %></p>
-<%= link_to "Go back to the list", tasks_path %>
-<%= link_to "Edit task", task_path %>
-<%= link_to "Delete task", task_path(@task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<div class="container">
+  <h2>Description:</h2>
+  <p><%= @task.details %></p>
+  <h2>Status:</h2>
+  <p>
+    <% if @task.completed == false %>
+      <%= "Not completed" %>
+    <% else %>
+      <%= "Completed" %>
+    <% end %>
+    </p>
+  <div class="button"><%= link_to '<i class="fa-solid fa-pencil"></i> Edit'.html_safe, edit_path %></div>
+  <div class="button"><%= link_to '<i class="fa-solid fa-trash-can"></i> Delete'.html_safe, task_path(@task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
+  <div class="button"><%= link_to '<i class="fa-solid fa-house"></i> Homepage'.html_safe, tasks_path %></div>
+</div>
