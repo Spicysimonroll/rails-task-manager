@@ -1,7 +1,7 @@
 <%= form_with model: task, id:"form" do |f|  %>
-  <%= f.label :title %>
+  <%= f.label :title, class:"label" %>
   <%= f.text_field :title, class:"field" %>
-  <%= f.label :details %>
+  <%= f.label :details, class:"label" %>
   <%= f.text_field :details, class:"field" %>
   <%= f.submit id:"submit" %>
 <% end %>

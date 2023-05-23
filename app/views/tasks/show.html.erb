@@ -1,16 +1,18 @@
 <h1><%= @task.title %></h1>
 <div class="container">
   <h2>Description:</h2>
-  <p><%= @task.details %></p>
+  <div id="task-description"><p><%= @task.details %></p></div>
   <h2>Status:</h2>
   <p>
-    <% if @task.completed == false %>
-      <%= "Not completed" %>
-    <% else %>
+    <% if @task.completed %>
       <%= "Completed" %>
+    <% else %>
+      <%= "Not completed" %>
     <% end %>
-    </p>
-  <div class="button"><%= link_to '<i class="fa-solid fa-pencil"></i> Edit'.html_safe, edit_path %></div>
-  <div class="button"><%= link_to '<i class="fa-solid fa-trash-can"></i> Delete'.html_safe, task_path(@task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
-  <div class="button"><%= link_to '<i class="fa-solid fa-house"></i> Homepage'.html_safe, tasks_path %></div>
+  </p>
+  <div class="buttons">
+    <div class="button"><%= link_to '<i class="fa-solid fa-arrow-left"></i> Back'.html_safe, tasks_path %></div>
+    <div class="button"><%= link_to '<i class="fa-solid fa-pencil"></i> Edit'.html_safe, edit_task_path %></div>
+    <div class="button"><%= link_to '<i class="fa-solid fa-trash-can"></i> Delete'.html_safe, task_path(@task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
+  </div>
 </div>

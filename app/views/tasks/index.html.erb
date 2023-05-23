@@ -1,9 +1,12 @@
 <h1>My tasks</h1>
 <div class="container">
-  <div id="add"><%= link_to '<i class="fa-solid fa-plus"></i> Add a new task'.html_safe, tasks_new_path %></div>
+  <div id="add"><%= link_to '<i class="fa-solid fa-plus"></i> Add a new task'.html_safe, new_task_path %></div>
   <ul id="tasks">
     <% @tasks.each do |task| %>
-      <li><input type="checkbox" class="checkbox"><%= link_to task.title, task_path(task) %></li>
+      <li>
+        <input name="checkbox" type="checkbox" class="checkbox">
+        <%= link_to task.title, task_path(task) %>
+      </li>
     <% end %>
   </ul>
 </div>
